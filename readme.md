@@ -1,6 +1,4 @@
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-
-[![Github All Releases](https://img.shields.io/github/downloads/terrydo/pug-tailwind-ts-template/total.svg)]()
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) [![Github All Releases](https://img.shields.io/github/downloads/terrydo/pug-tailwind-ts-template/total.svg)]()
 
 # Pug Tailwind Typescript Template
 
