@@ -1,0 +1,10 @@
+include footer
+
+- const jsFiles = htmlWebpackPlugin.files.js
+- const currentFileName =  htmlWebpackPlugin.options.filename;
+- const currentFileNameWithoutExt =  currentFileName.substring(0, currentFileName.length - 5);
+
+each js, index in jsFiles
+  - const jsFileNameWithoutExt = js.substring(0, js.length - 10);
+  if index === 0 || jsFileNameWithoutExt === currentFileNameWithoutExt
+    script(type='text/javascript', src=js)
