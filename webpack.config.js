@@ -6,12 +6,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BeautifyHtmlWebpackPlugin = require("beautify-html-webpack-plugin");
 const { readdirSync } = require("fs");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 /**
  * Define variables and functions
  */
+const PUBLIC_PATH = "./public";
 const VIEWS_PATH = "./src/views";
-const PAGE_SCRIPTS_PATH = "./src/js/pages";
+const PAGE_SCRIPTS_PATH = "./src/scripts/pages";
 
 const getPugFiles = (source) =>
   readdirSync(source, { withFileTypes: true })
@@ -55,19 +57,18 @@ const htmlPlugins = filenamesWithoutExtension.map((filename) => {
 module.exports = {
   mode: process.env.NODE_ENV || "development",
   entry: {
-    main: path.resolve(__dirname, "./src/js/index.ts"),
+    main: path.resolve(__dirname, "./src/scripts/index.ts"),
     ...scriptEntries,
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "[name].bundle.js",
-    clean: true,
+    filename: "js/[name].bundle.js",
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/i,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, "src/scripts"),
         exclude: /node_modules/,
         use: [
           {
@@ -86,15 +87,20 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, "src/assets"),
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.pug$/i,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, "src/views"),
         use: ["pug-loader"],
       },
     ],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   devServer: {
     contentBase: path.resolve(__dirname, "src"),
@@ -107,5 +113,10 @@ module.exports = {
     new BeautifyHtmlWebpackPlugin({
       indent_size: 4,
     }),
+    new CopyPlugin({
+      'patterns': [
+        {from: path.resolve(__dirname, PUBLIC_PATH), to: '.'}
+      ]
+    })
   ],
 };

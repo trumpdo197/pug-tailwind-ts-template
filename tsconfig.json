@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/js/*"]
+      "@/*": ["src/*"]
     },
     "outDir": "./dist/"
   },
