@@ -8,7 +8,8 @@ A quick start for modern PSD to HTML jobs. This template includes:
 - Pug
 - Typescript + Babel
 - PostCSS + TailwindCSS
-  This is the minimal Multi-page Webpack setup with above tools. You might have to make changes to suit your needs.
+
+This is the minimal Multi-page Webpack setup with above tools. You might have to make changes to suit your needs.
 
 ## Installation
 
@@ -38,13 +39,13 @@ First, it reads all the `.pug` files in `src/views` (**Not recursive**).
 
 Every found view file will then becomes a new HTML entry file through `HtmlWebpackPlugin`.
 
-And, it has a main Typescript entry file (index.ts) in `src/js/index.ts`, as well as many _page-specific scripts_ in `src/js/pages`.
+And, it has a main Typescript entry file (index.ts) in `src/scripts/index.ts`, as well as many _page-specific scripts_ in `src/scripts/pages`.
 For every _page-specific script_, it becomes a new webpack entry, ready to be built into a `[name].bundle.js` file.
 
 In the page's `foot` (`src/views/partials/foot.pug`), we do some logical check to ensure the main script is loaded along with the page-specific script.
 
 **Note**:
-
+- There's a `public` folder for you which will be copied to `dist` after building. Maybe try adding some images, fonts, stuff...?
 - Page-specific CSS is not implemented yet for the sake of simplicity.
 - Be careful when you make changes to the bundle's output filename, it might breaks the template!
 
