@@ -24,6 +24,7 @@
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.1.1",
+    "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^6.7.0",
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
