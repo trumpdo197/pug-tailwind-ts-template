@@ -45,7 +45,7 @@ For every _page-specific script_, it becomes a new webpack entry, ready to be bu
 In the page's `foot` (`src/views/partials/foot.pug`), we do some logical check to ensure the main script is loaded along with the page-specific script.
 
 **Note**:
-- There's a `public` folder for you which will be copied to `dist` after building. Maybe try adding some images, fonts, stuff...?
+- There's a `public` folder for you which will be copied to `dist` on the building process. Maybe try adding some images, fonts, stuff...?
 - Page-specific CSS is not implemented yet for the sake of simplicity.
 - Be careful when you make changes to the bundle's output filename, it might breaks the template!
 
